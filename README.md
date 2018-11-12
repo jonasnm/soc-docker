@@ -1,5 +1,5 @@
 # Spinning Up (with Docker)
-This repository is an attempt to Dockerize OpenAI's Spinning Up
+This repository is an attempt to Dockerize [OpenAI's Spinning Up](https://github.com/openai/spinningup)
 
 ## What's Working
 What I have working is:
