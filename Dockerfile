@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 # Use Jonathonf PPA for Python 3.6
 RUN apt-get update -y && \
     apt-get install -y software-properties-common && \
-    add-apt-repository ppa:jonathonf/python-3.6 && \
+    #add-apt-repository ppa:jonathonf/python-3.6 && \
     apt-get update -y
 
 ENV DEBIAN_FRONTEND noninteractive 
@@ -34,7 +34,8 @@ RUN ln -s /usr/bin/python3.6 /usr/bin/python
 RUN pip install --upgrade pip
 
 RUN mkdir ~/.vnc
-RUN git clone https://github.com/openai/spinningup.git
+#RUN git clone https://github.com/openai/spinningup.git
+RUN git clone https://github.com/cjenssen0/spinningup.git
 
 # Install dependencies
 RUN pip install \
@@ -46,15 +47,15 @@ RUN pip install \
 
 # MuJoCo & MuJoCo-py
 WORKDIR /root
-RUN mkdir /root/.mujoco && \
-    cd /root/.mujoco/ && \
-    curl -O https://www.roboti.us/download/mjpro150_linux.zip && \
-    unzip mjpro150_linux.zip
+#RUN mkdir /root/.mujoco && \
+    #cd /root/.mujoco/ && \
+    #curl -O https://www.roboti.us/download/mjpro150_linux.zip && \
+    #unzip mjpro150_linux.zip
     
-ADD mjkey.txt /root/.mujoco/mjkey.txt
+#ADD mjkey.txt /root/.mujoco/mjkey.txt
 
-RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mjpro150/bin && \
-    pip install mujoco-py
+#RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mjpro150/bin && \
+    #pip install mujoco-py
 
 # Install Spinning Up
 WORKDIR /spinningup
