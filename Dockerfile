@@ -36,6 +36,7 @@ RUN pip install --upgrade pip
 RUN mkdir ~/.vnc
 #RUN git clone https://github.com/openai/spinningup.git
 RUN git clone https://github.com/cjenssen0/spinningup.git
+RUN git clone https://github.com/cjenssen0/soc-exp-pybullet.git
 
 # Install dependencies
 RUN pip install \
@@ -43,6 +44,7 @@ RUN pip install \
     cffi \
     Cython \
     jupyter \
+    pybullet \
     lockfile
 
 # MuJoCo & MuJoCo-py
@@ -60,10 +62,5 @@ WORKDIR /root
 # Install Spinning Up
 WORKDIR /spinningup
 RUN pip install -e .
+RUN git checkout soc-pybullet
 
-RUN mkdir /ds
-WORKDIR /ds
-ADD samples /ds/samples
-ADD *.sh /ds/
-
-CMD [ "/ds/start-jupyter.sh" ]
