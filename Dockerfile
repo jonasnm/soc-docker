@@ -34,8 +34,9 @@ RUN ln -s /usr/bin/python3.6 /usr/bin/python
 RUN pip install --upgrade pip
 
 RUN mkdir ~/.vnc
-#RUN git clone https://github.com/openai/spinningup.git
-RUN git clone https://github.com/cjenssen0/spinningup.git
+#RUN git clone https://github.com/cjenssen0/spinningup.git
+#RUN git clone https://github.com/jonasnm/spinningup.git
+RUN git clone https://github.com/jonasnm/spinningup.git
 RUN git clone https://github.com/cjenssen0/soc-exp-pybullet.git
 
 # Install dependencies
