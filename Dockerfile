@@ -34,9 +34,7 @@ RUN ln -s /usr/bin/python3.6 /usr/bin/python
 RUN pip install --upgrade pip
 
 RUN mkdir ~/.vnc
-#RUN git clone https://github.com/cjenssen0/spinningup.git
-#RUN git clone https://github.com/jonasnm/spinningup.git
-RUN git clone https://github.com/jonasnm/spinningup.git
+RUN git clone https://github.com/cjenssen0/spinningup.git
 RUN git clone https://github.com/cjenssen0/soc-exp-pybullet.git
 
 # Install dependencies
@@ -60,8 +58,12 @@ WORKDIR /root
 #RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mjpro150/bin && \
     #pip install mujoco-py
 
-# Install Spinning Up
+# Install Spinning Up and check out correct branch
 WORKDIR /spinningup
 RUN pip install -e .
 RUN git checkout soc-pybullet
+
+# Set workdir to soc-exp-pybullet and check out "jonas-mod" branch
+WORKDIR /soc-exp-pybullet
+RUN git checkout jonas-mod
 
